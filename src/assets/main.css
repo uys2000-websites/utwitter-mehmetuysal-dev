@@ -1,0 +1,17 @@
+@import "./fonts.css";
+@import "./overrides.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .h-page {
+    @apply h-screen;
+  }
+}
+
+.h-app-page {
+  height: calc(100vh - 48px);
+  height: calc(100dvh - 48px);
+}
