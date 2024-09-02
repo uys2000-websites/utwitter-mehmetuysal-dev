@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex justify-center">
+  <div class="h-screen w-screen top-0 left-0 flex justify-center fixed">
     <span class="loading loading-infinity loading-lg"></span>
   </div>
 </template>

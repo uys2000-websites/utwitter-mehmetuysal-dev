@@ -11,7 +11,11 @@
   }
 }
 
+.h-page {
+  height: calc(100vh - 80px);
+  height: calc(100dvh - 80px);
+}
 .h-app-page {
-  height: calc(100vh - 48px);
-  height: calc(100dvh - 48px);
+  height: calc(100vh - 80px);
+  height: calc(100dvh - 80px);
 }

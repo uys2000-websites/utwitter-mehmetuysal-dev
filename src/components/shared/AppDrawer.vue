@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router';
 </script>
 
 <template>
-  <div class="drawer-side">
+  <div class="drawer-side z-10">
     <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>
     <ul class="menu bg-neutral min-h-full w-max p-0">
       <!-- Sidebar content here -->

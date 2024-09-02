@@ -1,5 +1,5 @@
 <template>
-  <header class="px-4 pt-4 sticky top-0">
+  <header class="px-4 pt-4 sticky top-0 z-10">
     <div class="bg-neutral text-neutral-content flex justify-between items-center p-4 rounded-box">
       <RouterLink class="btn btn-sm btn-ghost" :to="{ name: 'HomeView' }">
         Mehmet Uysal
@@ -17,13 +17,14 @@
           <template #content>
             <DropdownContent class="bg-neutral rounded-btn w-max mt-1">
               <div class="flex flex-col">
-                <RouterLink class="btn btn-xs btn-ghost" :to="{ name: 'AppView' }">
+                <RouterLink class="btn btn-sm btn-ghost" :to="{ name: 'AppView' }">
                   App
                 </RouterLink>
               </div>
             </DropdownContent>
           </template>
         </Dropdown>
+        <ThemeBtn />
       </div>
     </div>
   </header>
@@ -33,8 +34,17 @@
 import { RouterLink } from 'vue-router';
 import Dropdown from '../daisy/Dropdown.vue';
 import DropdownContent from '../daisy/DropdownContent.vue';
+import ThemeBtn from '../daisy/ThemeBtn.vue';
+import { useAuthStore } from '@/stores/auth';
 
 export default {
-  components: { Dropdown, DropdownContent, RouterLink }
+  components: { RouterLink, Dropdown, DropdownContent, ThemeBtn },
+  data() {
+    return {
+      authStore: useAuthStore()
+    }
+  },
+  methods: {
+  }
 }
 </script>
