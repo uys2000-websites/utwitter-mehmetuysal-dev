@@ -5,21 +5,27 @@
 </template>
 <script lang="ts">
 import { useAuthStore } from '@/stores/auth';
-
+import { auth, signOut } from '@/services/auth';
 export default {
   data() {
     return {
       authStore: useAuthStore()
     }
   },
-  mounted() {
-    // Auth Control Simulation
-    setTimeout(() => {
-      if (this.$route.redirectedFrom?.name) {
-        this.authStore.id = "userid"
-        this.$router.push({ name: this.$route.redirectedFrom.name })
+  async mounted() {
+    await auth.authStateReady()
+    if (auth.currentUser) {
+      const tokens = await auth.currentUser.getIdTokenResult()
+      if (!!tokens.claims.admin) {
+        if (this.$route.redirectedFrom?.name) {
+          this.authStore.id = auth.currentUser.uid
+          this.$router.push({ name: this.$route.redirectedFrom.name })
+          return;
+        }
       }
-    }, 1000);
+      await signOut()
+    }
+    this.$router.push({ name: 'HomeView' })
   }
 }
 </script>
