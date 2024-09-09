@@ -21,10 +21,10 @@
         </thead>
         <tbody>
           <template v-for="user, index in users">
-            <tr :set="data = user.data()">
+            <tr>
               <th>{{ index }}</th>
               <td>{{ user.id }}</td>
-              <td>{{ data.user }}</td>
+              <td>{{ user.data().user }}</td>
               <td class="w-10 cursor-pointer text-error" @click="() => del(user.id)">X</td>
             </tr>
           </template>
