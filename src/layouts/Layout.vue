@@ -1,11 +1,13 @@
 <template>
-  <div class="h-screen bg-base-300 overflow-hidden">
+  <div class="h-screen w-full bg-base-300 relative flex flex-col flex-nowrap overflow-hidden">
     <TheHeader />
-    <router-view v-slot="{ Component, route }">
-      <transition name="page">
-        <component :is="Component" :key="route.path" />
-      </transition>
-    </router-view>
+    <div class="h-full w-full relative flex-shrink">
+      <router-view v-slot="{ Component, route }">
+        <transition name="page">
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 
